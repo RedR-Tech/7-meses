@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 Meses 💖</title>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+    }
+
+    h1 {
+    position: absolute;
+    top: 30px;  
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+    }
+
+
+    /* Coração pulsando */
+    .heart {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        transform: rotate(-45deg);
+        background: red;
+        animation: pulse 1s infinite;
+        cursor: pointer;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: red;
+    }
+
+    .heart::before {
+        top: -75px;
+        left: 0;
+    }
+
+    .heart::after {
+        left: 75px;
+        top: 0;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1) rotate(-45deg); }
+        50% { transform: scale(1.1) rotate(-45deg); }
+        100% { transform: scale(1) rotate(-45deg); }
+    }
+
+    /* Botão enganador */
+    button {
+        margin-top: 100px;
+        padding: 10px 20px;
+        font-size: 1em;
+        background: white;
+        color: #ff4d6d;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+
+    /* Mensagens */
+    #mensagem {
+        white-space: pre-line;
+        margin-top: 30px;
+        font-size: 1.2em;
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+    <h1>Clique no lugar onde você mexe comigo 💕</h1>
+
+    <div class="heart" id="heart"></div>
+
+    <button id="fakeButton">Clique aqui!</button>
+
+    <p id="mensagem"></p>
+
+<script>
+    const mensagens = [
+        "1. Você é meu lugar favorito no mundo 💖",
+        "2. Cada momento com você vale mais que ouro e prata ✨",
+        "3. Admiro sua sabedoria, admiro seu esforço, admiro sua força, admiro você por completo minha princesa ❤️",
+        "4. Obrigado por sempre estar comigo 💕🥰",
+        "5. Eu amo cada detalhe seu 🌹",
+        "6. Estar com você me faz completo 💕",
+        "7. Que venham muitos meses e anos juntos ❤️"
+    ];
+
+    let index = 0;
+    const heart = document.getElementById("heart");
+    const mensagem = document.getElementById("mensagem");
+
+    heart.addEventListener("click", () => {
+        if (index < mensagens.length) {
+            mensagem.style.display = "block";
+            mensagem.textContent = mensagens[index];
+            index++;
+        } else {
+            mensagem.textContent = "Essas foram apenas 7 razões… mas eu tenho infinitas para te amar! 💘\n\n\n\nDe seu grande amor, Raul.";
+        }
+    });
+
+    // Botão enganador
+    document.getElementById("fakeButton").addEventListener("click", () => {
+        alert("Hmm... não é aqui! Tente em outro lugar 😉");
+    });
+</script>
+
+</body>
+</html>
